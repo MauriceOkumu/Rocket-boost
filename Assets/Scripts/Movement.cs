@@ -29,9 +29,7 @@ public class Movement : MonoBehaviour
             rb.AddRelativeForce(Vector3.up * thrust * Time.deltaTime);
             if(!audioSource.isPlaying)
             {
-
             audioSource.Play();
-        
             }
         }else{
             audioSource.Stop();
@@ -57,4 +55,6 @@ public class Movement : MonoBehaviour
         rb.freezeRotation = false;
     }
 }
+        
            
+
