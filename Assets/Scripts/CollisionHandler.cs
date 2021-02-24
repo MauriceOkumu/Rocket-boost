@@ -5,18 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField]
+    float levelDelay = 2f;
+
+    [SerializeField] 
+    AudioClip crashedSound, levelFinished;
+
+     AudioSource audioSource;
+     void Start()
+    {
+       audioSource = GetComponent<AudioSource>();
+    }
+
    void OnCollisionEnter(Collision other) {
        switch (other.gameObject.tag)
        {
             case "Friendly":
                 Debug.Log("Launch pad");
                 break;
-            case "Fuel":
-                Debug.Log("Fueled");
-                break;
             case "Finish":
                 Debug.Log("Finished Level");
-                 LoadNextLevel();
+                 startSequence();
                 break;
            default:
              Debug.Log("Life lost");
@@ -41,7 +50,16 @@ public class CollisionHandler : MonoBehaviour
    }
    void CrashSequence()
    {
+       //Add SFX
+       audioSource.PlayOneShot(crashedSound);
+       //Add particle effect
        GetComponent<Movement>().enabled = false;
-       Invoke("ReloadLevel", 2f);
+       Invoke("ReloadLevel", levelDelay);
+   }
+   void startSequence()
+   {
+       audioSource.PlayOneShot(levelFinished);
+       GetComponent<Movement>().enabled = false;
+       Invoke("LoadNextLevel", levelDelay);
    }
 }

@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ed74477d3649869ec1556489ec795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  booster: {fileID: 8300000, guid: d5b95e68be0ec410fb0e972842cc7600, type: 3}
   thrust: 1000
   rotationThrust: 100
 --- !u!54 &780799549445113968
@@ -76,7 +77,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d5b95e68be0ec410fb0e972842cc7600, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -174,6 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5549d0dfd51f14f19b57e1caf046ae67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelDelay: 2
+  crashedSound: {fileID: 8300000, guid: 595db57b5b41042fc8a525f45321e7a3, type: 3}
+  levelFinished: {fileID: 8300000, guid: 088ecf137b32143408c108ab2ea27ca0, type: 3}
 --- !u!1 &780799549547525601
 GameObject:
   m_ObjectHideFlags: 0

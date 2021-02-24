@@ -589,14 +589,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 780799549445113968, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
-      propertyPath: m_Drag
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 780799549445113968, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
-      propertyPath: m_Constraints
-      value: 56
-      objectReference: {fileID: 0}
     - target: {fileID: 780799549445113970, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -640,14 +632,6 @@ PrefabInstance:
     - target: {fileID: 780799549445113970, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 780799549445113971, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
-      propertyPath: thrust
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 780799549445113971, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
-      propertyPath: rotationThrust
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 780799549445113981, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
       propertyPath: m_Name
