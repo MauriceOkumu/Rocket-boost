@@ -5,12 +5,14 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField]
-    float thrust = 100f, rotationThrust = 0.5f;
+    float thrust = 1000f, rotationThrust = 100f;
     Rigidbody rb;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
        rb = GetComponent<Rigidbody>(); 
+       audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,7 +26,15 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * thrust );
+            rb.AddRelativeForce(Vector3.up * thrust * Time.deltaTime);
+            if(!audioSource.isPlaying)
+            {
+
+            audioSource.Play();
+        
+            }
+        }else{
+            audioSource.Stop();
         }
     }
 
@@ -43,7 +53,7 @@ public class Movement : MonoBehaviour
     void ApplyRotation(float rotateThis)
     {
         rb.freezeRotation = true;
-        transform.Rotate(Vector3.back * rotateThis );
+        transform.Rotate(Vector3.back * rotateThis * Time.deltaTime);
         rb.freezeRotation = false;
     }
 }
