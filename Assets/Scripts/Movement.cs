@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] 
-    AudioClip booster;
 
     [SerializeField]
     float thrust = 1000f, rotationThrust = 100f;
+    [SerializeField]
+    ParticleSystem leftBooster, mainBooster, rightBooster;
+
+    [SerializeField] 
+    AudioClip booster, sideBooster;
 
     Rigidbody rb;
     AudioSource audioSource;
@@ -30,25 +33,39 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Space))
         {
+            Boost();
+        }else{
+            audioSource.Stop();
+             mainBooster.Stop();
+        }
+    }
+    void Boost()
+    {
+        if(!mainBooster.isPlaying) mainBooster.Play();
+           
             rb.AddRelativeForce(Vector3.up * thrust * Time.deltaTime);
             if(!audioSource.isPlaying)
             {
             audioSource.PlayOneShot(booster);
             }
-        }else{
-            audioSource.Stop();
-        }
     }
 
     void ProcessRotation()
     {
          if(Input.GetKey(KeyCode.LeftArrow))
         {
+             if(!leftBooster.isPlaying) leftBooster.Play();
+              if(!audioSource.isPlaying) audioSource.PlayOneShot(sideBooster);
              ApplyRotation(-rotationThrust);
         }
          else if(Input.GetKey(KeyCode.RightArrow))
         {
+            if(!rightBooster.isPlaying) rightBooster.Play();
+              if(!audioSource.isPlaying) audioSource.PlayOneShot(sideBooster);
             ApplyRotation(rotationThrust);
+        }else{
+             leftBooster.Stop();
+              rightBooster.Stop();
         }
 
     }

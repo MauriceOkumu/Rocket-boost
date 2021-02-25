@@ -510,7 +510,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 679937c842d324cc7ba668f22172f324, type: 2}
+  - {fileID: 2100000, guid: 295e01c3ee57d4d1b9b64c2573ee2148, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -599,15 +599,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 780799549445113970, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.31
+      value: 2.29
       objectReference: {fileID: 0}
     - target: {fileID: 780799549445113970, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.82
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 780799549445113970, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.2
+      value: 2.18
       objectReference: {fileID: 0}
     - target: {fileID: 780799549445113970, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -641,6 +641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 780799549547525604, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: acba643a8a8354445ae0124c8dfaf83a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47a7a720c13a341d799590b36e945d4f, type: 3}
 --- !u!1001 &5098902107968524865

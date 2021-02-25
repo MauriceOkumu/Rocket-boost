@@ -11,13 +11,20 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] 
     AudioClip crashedSound, levelFinished;
 
+    [SerializeField]
+    ParticleSystem successParticles, crashParticles;
+
      AudioSource audioSource;
+
+     bool inTransition = false;
      void Start()
     {
        audioSource = GetComponent<AudioSource>();
     }
 
    void OnCollisionEnter(Collision other) {
+       if( inTransition) return;
+
        switch (other.gameObject.tag)
        {
             case "Friendly":
@@ -50,16 +57,24 @@ public class CollisionHandler : MonoBehaviour
    }
    void CrashSequence()
    {
+        inTransition = true;
+        audioSource.Stop();
        //Add SFX
        audioSource.PlayOneShot(crashedSound);
        //Add particle effect
+        crashParticles.Play();
        GetComponent<Movement>().enabled = false;
        Invoke("ReloadLevel", levelDelay);
    }
    void startSequence()
    {
+        inTransition = true;
+        audioSource.Stop();
+         successParticles.Play();
        audioSource.PlayOneShot(levelFinished);
        GetComponent<Movement>().enabled = false;
        Invoke("LoadNextLevel", levelDelay);
+    
    }
 }
+
