@@ -21,22 +21,18 @@ public class Movement : MonoBehaviour
        rb = GetComponent<Rigidbody>(); 
        audioSource = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         ProcessThrust();
         ProcessRotation();
     }
-
     void ProcessThrust()
     {
         if(Input.GetKey(KeyCode.Space))
         {
             Boost();
         }else{
-            audioSource.Stop();
-             mainBooster.Stop();
+           StopBoost();
         }
     }
     void Boost()
@@ -49,23 +45,22 @@ public class Movement : MonoBehaviour
             audioSource.PlayOneShot(booster);
             }
     }
-
+    void StopBoost()
+    {
+        audioSource.Stop();
+        mainBooster.Stop();
+    }
     void ProcessRotation()
     {
          if(Input.GetKey(KeyCode.LeftArrow))
         {
-             if(!leftBooster.isPlaying) leftBooster.Play();
-              if(!audioSource.isPlaying) audioSource.PlayOneShot(sideBooster);
-             ApplyRotation(-rotationThrust);
+            RotateLeft();
         }
          else if(Input.GetKey(KeyCode.RightArrow))
         {
-            if(!rightBooster.isPlaying) rightBooster.Play();
-              if(!audioSource.isPlaying) audioSource.PlayOneShot(sideBooster);
-            ApplyRotation(rotationThrust);
+           RotateRight();
         }else{
-             leftBooster.Stop();
-              rightBooster.Stop();
+            StopRotation();
         }
 
     }
@@ -74,6 +69,24 @@ public class Movement : MonoBehaviour
         rb.freezeRotation = true;
         transform.Rotate(Vector3.back * rotateThis * Time.deltaTime);
         rb.freezeRotation = false;
+    }
+
+    void RotateLeft()
+    {
+        if(!leftBooster.isPlaying) leftBooster.Play();
+        if(!audioSource.isPlaying) audioSource.PlayOneShot(sideBooster);
+        ApplyRotation(-rotationThrust);
+    }
+    void RotateRight()
+    {
+        if(!rightBooster.isPlaying) rightBooster.Play();
+        if(!audioSource.isPlaying) audioSource.PlayOneShot(sideBooster);
+        ApplyRotation(rotationThrust);
+    }
+    void StopRotation()
+    {
+        leftBooster.Stop();
+        rightBooster.Stop();
     }
 }
         
