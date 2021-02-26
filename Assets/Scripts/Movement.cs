@@ -5,8 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
-    [SerializeField]
-    float thrust = 1000f, rotationThrust = 100f;
+    // [SerializeField]
+    // float thrust = 1000f, rotationThrust = 100f;
     [SerializeField]
     ParticleSystem leftBooster, mainBooster, rightBooster;
 
@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
     {
         if(!mainBooster.isPlaying) mainBooster.Play();
            
-            rb.AddRelativeForce(Vector3.up * thrust * Time.deltaTime);
+            rb.AddRelativeForce(Vector3.up * Globals.thrust * Time.deltaTime);
             if(!audioSource.isPlaying)
             {
             audioSource.PlayOneShot(booster);
@@ -75,13 +75,13 @@ public class Movement : MonoBehaviour
     {
         if(!leftBooster.isPlaying) leftBooster.Play();
         if(!audioSource.isPlaying) audioSource.PlayOneShot(sideBooster);
-        ApplyRotation(-rotationThrust);
+        ApplyRotation(-Globals.rotationThrust);
     }
     void RotateRight()
     {
         if(!rightBooster.isPlaying) rightBooster.Play();
         if(!audioSource.isPlaying) audioSource.PlayOneShot(sideBooster);
-        ApplyRotation(rotationThrust);
+        ApplyRotation(Globals.rotationThrust);
     }
     void StopRotation()
     {
