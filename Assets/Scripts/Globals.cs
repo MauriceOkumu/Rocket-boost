@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Globals 
+public class Globals 
 {
     [SerializeField]
-    public static float thrust = 1000f, rotationThrust = 100f;
+    public static float thrust, rotationThrust;
     [SerializeField]
     public static float period = 10f;
-    public static float distanceToMove = 10f;
-    public static Vector3  movementVector = Vector3.right * Globals.distanceToMove;
+    public static float distanceToMove;
+    public static Vector3  movementVector;
+   
 }
