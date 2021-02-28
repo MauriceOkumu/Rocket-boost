@@ -5,15 +5,13 @@ using UnityEngine;
 public class Ocsillator : MonoBehaviour
 {
     Vector3 startingPos;
-    // Vector3  movementVector;
+   
     float movementFactor;
     
-    // Start is called before the first frame update
     void Start()
     {
         startingPos = transform.position;
-        // Globals.movementVector = Vector3.right * Globals.distanceToMove;
-        // Debug.Log("Distance to move " + Globals.distanceToMove);
+        
     }
 
     void Update()

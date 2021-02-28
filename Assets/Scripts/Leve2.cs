@@ -7,10 +7,11 @@ public class Leve2 : MonoBehaviour
 
     void Awake ()    
     {
-        Globals.distanceToMove = 10f;
+        Globals.distanceToMove = 13f;
+        Globals.period = 15f;
         Globals.thrust = 800f;
         Globals.rotationThrust = 150f;
-        Globals.movementVector = Vector3.zero * Globals.distanceToMove;
+        Globals.movementVector = Vector3.right * Globals.distanceToMove;
     }
 
 }

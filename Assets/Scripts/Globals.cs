@@ -9,6 +9,7 @@ public class Globals
     [SerializeField]
     public static float period = 10f;
     public static float distanceToMove;
+    public static int speed = 30;
     public static Vector3  movementVector;
    
 }

@@ -10,6 +10,6 @@ public class Level1 : MonoBehaviour
         Globals.distanceToMove = 20f;
         Globals.thrust = 1000f;
         Globals.rotationThrust = 100f;
-         Globals.movementVector = Vector3.right * Globals.distanceToMove;
+        Globals.movementVector = Vector3.right * Globals.distanceToMove;
     }
 }
